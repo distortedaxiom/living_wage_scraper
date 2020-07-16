@@ -12,8 +12,28 @@ class StateFetcher:
 
     def state_list(self):
 
+        states_list = []
+
         url = "https://livingwage.mit.edu/"
         driver.get(url)
+
+        try:
+            WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.CLASS_NAME, "states"))
+            )
+
+        finally:
+            state_container = driver.find_element_by_class_name('states')
+            state_container_links = state_container.find_elements_by_css_selector('a')
+
+        for state in range(len(state_container_links)):
+            states_list.append([state_container_links[state].text])
+
+        print(states_list)
+
+        for x in state_container_links:
+            print(x.get_attribute('href'))
+
 
 
 if __name__ == "__main__":
