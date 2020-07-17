@@ -10,9 +10,10 @@ driver = webdriver.Chrome()
 
 class StateFetcher:
 
-    def state_list(self):
+    def states_list(self):
 
         states_list = []
+        states_link_holder = []
 
         url = "https://livingwage.mit.edu/"
         driver.get(url)
@@ -29,14 +30,24 @@ class StateFetcher:
         for state in range(len(state_container_links)):
             states_list.append([state_container_links[state].text])
 
-        print(states_list)
-
         for x in state_container_links:
-            print(x.get_attribute('href'))
+            states_link_holder.append(x.get_attribute('href'))
+
+        for i in range(len(states_list)):
+            states_list[i].append(states_link_holder[i])
+
+        return states_list
+
+    def county_finder(self):
+
+        list = self.states_list()
+        print(list)
+
+
 
 
 
 if __name__ == "__main__":
     query_request = StateFetcher()
-    query_request.state_list()
+    query_request.county_finder()
     input("Press enter to close")
