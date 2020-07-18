@@ -73,11 +73,29 @@ class StateFetcher:
     def county_data(self, state):
 
         list = self.county_list(state)
+        final_list = []
 
         for x in range(0, len(list)):
-            for county in list:
-                print('current page ' + county[0])
+            driver.get(list[x][1])
 
+            try:
+                WebDriverWait(driver, 10).until(
+                    EC.presence_of_element_located((By.CLASS_NAME, "results_table"))
+                )
+
+            finally:
+                data_container = driver.find_elements_by_css_selector('tbody')
+                for x in range(len(data_container)):
+                    data_container_body = (data_container[0].text).replace(" ", ",").replace("\n", ',')
+                    data_container_body_array = [data_container_body]
+                    data_container_body_array.insert(0, list[x][0])
+                    data_array = (data_container_body_array[1].split(','))
+                    data_array.insert(0, list[x][0])
+                    data_array.insert(1, state)
+                    filtered_array = [e for e in data_array if e not in ('Living', 'Wage', 'Poverty', 'Minimum')]
+                    final_list.append((filtered_array))
+
+        print ((final_list))
 
 if __name__ == "__main__":
     query_request = StateFetcher()
