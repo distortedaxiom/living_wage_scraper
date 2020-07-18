@@ -38,16 +38,48 @@ class StateFetcher:
 
         return states_list
 
-    def county_finder(self):
+    def county_list(self, state):
 
         list = self.states_list()
-        print(list)
 
+        county_list = []
+        county_link_holder = []
 
+        for x in list:
+            state_link = x[1]
+            if state in x[0]:
+                driver.get(state_link)
 
+                try:
+                    WebDriverWait(driver, 10).until(
+                        EC.presence_of_element_located((By.CLASS_NAME, "counties"))
+                    )
+
+                finally:
+                    county_container = driver.find_element_by_class_name('counties')
+                    county_container_links = county_container.find_elements_by_css_selector('a')
+
+                    for county in range(len(county_container_links)):
+                        county_list.append([county_container_links[county].text])
+
+                    for x in county_container_links:
+                        county_link_holder.append(x.get_attribute('href'))
+
+                    for i in range(len(county_list)):
+                        county_list[i].append(county_link_holder[i])
+
+                    return county_list
+
+    def county_data(self, state):
+
+        list = self.county_list(state)
+
+        for x in range(0, len(list)):
+            for county in list:
+                print('current page ' + county[0])
 
 
 if __name__ == "__main__":
     query_request = StateFetcher()
-    query_request.county_finder()
+    query_request.county_data("Ohio")
     input("Press enter to close")
