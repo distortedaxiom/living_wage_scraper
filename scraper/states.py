@@ -85,12 +85,15 @@ class StateFetcher:
             finally:
                 data_container = driver.find_elements_by_css_selector('tbody')
                 for i in range(len(list)):
+                    zip_code_link = str(list[x][1])
+                    zip_code = zip_code_link[-5: ]
                     data_container_body = (data_container[0].text).replace(" ", ",").replace("\n", ',')
                     data_container_body_array = [data_container_body]
                     data_container_body_array.insert(0, list[i][0])
                     data_array = (data_container_body_array[1].split(','))
                     data_array.insert(0, list[x][0])
                     data_array.insert(1, state)
+                    data_array.insert(2, zip_code)
                     filtered_wage_array = [e for e in data_array if e not in ('Living', 'Wage', 'Poverty', 'Minimum')]
 
                     expenses_container_body = (data_container[1].text.replace(" ", "/").replace("\n", ','))
@@ -102,9 +105,11 @@ class StateFetcher:
                         filtered_expenses_array[i] = filtered
 
                 filtered_wage_array.extend(filtered_expenses_array)
-                print(filtered_wage_array)
                 final_list.append(filtered_wage_array)
 
+        print(final_list[0])
+        print(final_list[5])
+        print(final_list[44])
         return final_list
 
 
