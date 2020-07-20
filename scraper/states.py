@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 import time
+import re
 
 driver = webdriver.Chrome()
 
@@ -74,6 +75,7 @@ class StateFetcher:
 
         list = self.county_list(state)
         final_list = []
+        list_holder = []
 
         for x in range(0, len(list)):
             driver.get(list[x][1])
@@ -85,17 +87,29 @@ class StateFetcher:
 
             finally:
                 data_container = driver.find_elements_by_css_selector('tbody')
-                for x in range(len(data_container)):
+                for i in range(len(list)):
                     data_container_body = (data_container[0].text).replace(" ", ",").replace("\n", ',')
                     data_container_body_array = [data_container_body]
-                    data_container_body_array.insert(0, list[x][0])
+                    data_container_body_array.insert(0, list[i][0])
                     data_array = (data_container_body_array[1].split(','))
                     data_array.insert(0, list[x][0])
                     data_array.insert(1, state)
-                    filtered_array = [e for e in data_array if e not in ('Living', 'Wage', 'Poverty', 'Minimum')]
-                    final_list.append((filtered_array))
+                    filtered_wage_array = [e for e in data_array if e not in ('Living', 'Wage', 'Poverty', 'Minimum')]
 
-        print ((final_list))
+                    expenses_container_body = (data_container[1].text.replace(" ", "/").replace("\n", ','))
+                    expenses_container_body_array = [expenses_container_body]
+                    expenses_array = (expenses_container_body_array[0].split('/'))
+                    filtered_expenses_array = [e for e in expenses_array if e not in ('Food', 'Child', 'Care', 'annual', 'income', 'after', 'before', 'taxes')]
+                    for i in range(len(filtered_expenses_array)):
+                        filtered = re.sub('[^0-9]','', filtered_expenses_array[i])
+                        filtered_expenses_array[i] = filtered
+
+                filtered_wage_array.extend(filtered_expenses_array)
+                print(filtered_wage_array)
+                final_list.append(filtered_wage_array)
+
+        return final_list
+
 
 if __name__ == "__main__":
     query_request = StateFetcher()
