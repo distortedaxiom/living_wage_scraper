@@ -1,0 +1,39 @@
+CREATE TABLE IF NOT EXISTS counties
+(id INT AUTO_INCREMENT PRIMARY KEY, state VARCHAR(15), zipcode VARCHAR(20),
+
+livingwage1a0c VARCHAR(15), livingwage1a1c VARCHAR(15), livingwage1a2c VARCHAR(15), livingwage1a3c VARCHAR(15), livingwage2a0c1w VARCHAR(15), livingwage2a1c1w VARCHAR(15),
+livingwage2a2c1w VARCHAR(15), livingwage2a3c1w VARCHAR(15), livingwage2a0c2w VARCHAR(15), livingwage2a1c2w VARCHAR(15), livingwage2a2c2w VARCHAR(15), livingwage2a3c2w VARCHAR(15),
+povertywage1a0c VARCHAR(15), povertywage1a1c VARCHAR(15), povertywage1a2c VARCHAR(15), povertywage1a3c VARCHAR(15), povertywage2a0c1w VARCHAR(15), povertywage2a1c1w VARCHAR(15),
+povertywage2a2c1w VARCHAR(15), povertywage2a3c1w VARCHAR(15), povertywage2a0c2w VARCHAR(15), povertywage2a1c2w VARCHAR(15), povertywage2a2c2w VARCHAR(15), povertywage2a3c2w VARCHAR(15),
+minimumwage1a0c VARCHAR(15), minimumwage1a1c VARCHAR(15), minimumwage1a2c VARCHAR(15), minimumwage1a3c VARCHAR(15), minimumwage2a0c1w VARCHAR(15), minimumwage2a1c1w VARCHAR(15),
+minimumwage2a2c1w VARCHAR(15), minimumwage2a3c1w VARCHAR(15), minimumwage2a0c2w VARCHAR(15), minimumwage2a1c2w VARCHAR(15), minimumwage2a2c2w VARCHAR(15), minimumwage2a3c2w VARCHAR(15),
+
+food1a0c VARCHAR(15), food1a1c VARCHAR(15), food1a2c VARCHAR(15), food1a3c VARCHAR(15), food2a0c1w VARCHAR(15), food2a1c1w VARCHAR(15), food2a2c1w VARCHAR(15), food2a3c1w VARCHAR(15),
+food2a0c2w VARCHAR(15), food2a1c2w VARCHAR(15), food2a2c2w VARCHAR(15), food2a3c2w VARCHAR(15),
+
+childcare1a0c VARCHAR(15), childcare1a1c VARCHAR(15),  childcare1a2c VARCHAR(15),  childcare1a3c VARCHAR(15), childcare2a0c1w VARCHAR(15), childcare2a1c1w VARCHAR(15), childcare2a2c1w VARCHAR(15),
+childcare2a3c1w VARCHAR(15), childcare2a0c2w VARCHAR(15), childcare2a1c2w VARCHAR(15), childcare2a2c2w VARCHAR(15), childcare2a3c2w VARCHAR(15),
+
+medical1a0c VARCHAR(15), medical1a1c VARCHAR(15), medical1a2c VARCHAR(15), medical1a3c VARCHAR(15), medical2a0c1w VARCHAR(15), medical2a1c1w VARCHAR(15), medical2a2c1w VARCHAR(15),
+medical2a3c1w VARCHAR(15), medical2a0c2w VARCHAR(15), medical2a1c2w VARCHAR(15), medical2a2c2w VARCHAR(15), medical2a3c2w VARCHAR(15),
+
+housing1a0c VARCHAR(15), housing1a1c VARCHAR(15), housing1a2c VARCHAR(15), housing1a3c VARCHAR(15), housing2a0c1w VARCHAR(15), housing2a1c1w VARCHAR(15), housing2a2c1w VARCHAR(15),
+housing2a3c1w VARCHAR(15), housing2a0c2w VARCHAR(15), housing2a1c2w VARCHAR(15), housing2a2c2w VARCHAR(15), housing2a3c2w VARCHAR(15),
+
+transportation1a0c VARCHAR(15), transportation1a1c VARCHAR(15), transportation1a2c VARCHAR(15), transportation1a3c VARCHAR(15), transportation2a0c1w VARCHAR(15), transportation2a1c1w VARCHAR(15),
+transportation2a2c1w VARCHAR(15), transportation2a3c1w VARCHAR(15), transportation2a0c2w VARCHAR(15), transportation2a1c2w VARCHAR(15), transportation2a2c2w VARCHAR(15), transportation2a3c2w VARCHAR(15),
+
+other1a0c VARCHAR(15), other1a1c VARCHAR(15), other1a2c VARCHAR(15), other1a3c VARCHAR(15), other2a0c1w VARCHAR(15), other2a1c1w VARCHAR(15), other2a2c1w VARCHAR(15), other2a3c1w VARCHAR(15),
+other2a0c2w VARCHAR(15), other2a1c2w VARCHAR(15), other2a2c2w VARCHAR(15), other2a3c2w VARCHAR(15),
+
+reqincomeaftertaxes1a0c VARCHAR(15), reqincomeaftertaxes1a1c VARCHAR(15), reqincomeaftertaxes1a2c VARCHAR(15), reqincomeaftertaxes1a3c VARCHAR(15), reqincomeaftertaxes2a0c1w VARCHAR(15),
+reqincomeaftertaxes2a1c1w VARCHAR(15), reqincomeaftertaxes2a2c1w VARCHAR(15), reqincomeaftertaxes2a3c1w VARCHAR(15), reqincomeaftertaxes2a0c2w VARCHAR(15), reqincomeaftertaxes2a1c2w VARCHAR(15),
+reqincomeaftertaxes2a2c2w VARCHAR(15), reqincomeaftertaxes2a3c2w VARCHAR(15),
+
+annualtaxes1a0c VARCHAR(15), annualtaxes1a1c VARCHAR(15), annualtaxes1a2c VARCHAR(15), annualtaxes1a3c VARCHAR(15), annualtaxes2a0c1w VARCHAR(15), annualtaxes2a1c1w VARCHAR(15), annualtaxes2a2c1w VARCHAR(15),
+annualtaxes2a3c1w VARCHAR(15), annualtaxes2a0c2w VARCHAR(15), annualtaxes2a1c2w VARCHAR(15), annualtaxes2a2c2w VARCHAR(15), annualtaxes2a3c2w VARCHAR(15),
+
+reqincomebeforetaxes1a0c VARCHAR(15), reqincomebeforetaxes1a1c VARCHAR(15), reqincomebeforetaxes1a2c VARCHAR(15), reqincomebeforetaxes1a3c VARCHAR(15), reqincomebeforetaxes2a0c1w VARCHAR(15),
+reqincomebeforetaxes2a1c1w VARCHAR(15), reqincomebeforetaxes2a2c1w VARCHAR(15), reqincomebeforetaxes2a3c1w VARCHAR(15), reqincomebeforetaxes2a0c2w VARCHAR(15), reqincomebeforetaxes2a1c2w VARCHAR(15),
+reqincomebeforetaxes2a2c2w VARCHAR(15), reqincomebeforetaxes2a3c2w VARCHAR(15))
+

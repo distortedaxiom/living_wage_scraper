@@ -107,6 +107,7 @@ class StateFetcher:
                 filtered_wage_array.extend(filtered_expenses_array)
                 final_list.append(filtered_wage_array)
 
+        print(final_list)
         print(final_list[0])
         print(final_list[5])
         print(final_list[44])
